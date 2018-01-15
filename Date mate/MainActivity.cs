@@ -12,6 +12,7 @@ namespace Date_mate
     public class Main : Activity
     {
         Button start;
+
         protected override void OnCreate(Bundle b)
         {
             base.OnCreate(b);
@@ -27,10 +28,7 @@ namespace Date_mate
         }
         public void startgame(object o, EventArgs ea)
         {
-            //Intent i = new Intent(this, typeof(Question));
-            //this.StartActivity(i);
-            GameBase game = new GameBase();
-            //game.game();
+            GameBase.startgame();
         }
 
     }

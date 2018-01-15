@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -7,20 +8,29 @@ using Android.Graphics;
 
 namespace Date_mate
 {
-    [Activity(Label = "")]
-    public class Question : Activity
+    public class Question
     {
-        protected override void OnCreate(Bundle b)
+        public String Ask;
+        //Elk answer bestaat uit een plaats daarna een spatie en het antwoord zelf
+        List<String> Answers = new List<String>();
+
+        public Question(String q)
         {
-            base.OnCreate(b);
-
-            LinearLayout menu = new LinearLayout(this);
-            menu.Orientation = Orientation.Vertical;
-            menu.SetBackgroundColor(Color.Yellow);
-
-            TextView q1 = new TextView(this); q1.Text = "Date Mate"; q1.TextSize = 10; q1.SetTextColor(Color.Black); menu.AddView(q1);
-
-            this.SetContentView(menu);
+            Ask = q;;
+        }
+        public void AddAnswer(String a)
+        {
+            Answers.Add(a);
+        }
+        public List<String> getAnswer
+        {
+            get { return Answers; }
+            set { }
+        }
+        public String getQuestion
+        {
+            get { return Ask; }
+            set { }
         }
     }
 }

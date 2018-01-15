@@ -9,8 +9,12 @@ namespace Date_mate
 {
     public class Userinfo
     {
-        String Name;
         int Age;
+        String Gender;
         String Affectie;
+        public void Opslaan()
+        {
+
+        }
     }
 }

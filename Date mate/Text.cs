@@ -7,11 +7,8 @@ using Android.Graphics;
 
 namespace Date_mate
 {
-    class Node
+    class Text
     {
-        public Node()
-        {
 
-        }
     }
 }

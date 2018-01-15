@@ -59,10 +59,12 @@
   <ItemGroup>
     <Compile Include="GameBase.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Node.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="QuestionPage.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="TextPage.cs" />
     <Compile Include="Userinfo.cs" />
   </ItemGroup>
   <ItemGroup>
