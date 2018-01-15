@@ -12,5 +12,9 @@ namespace Date_mate
         String Name;
         int Age;
         String Affectie;
+        public Userinfo()
+        {
+
+        }
     }
 }
