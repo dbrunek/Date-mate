@@ -16,32 +16,53 @@ namespace Date_mate
 
         public static void startgame()
         {
-            Question q0 = new Question("wat is je leeftijd");
-            q0.AddAnswer("1haHAA");
-            q0.AddAnswer("212 btw");
+            Question q0 = new Question("What is your age?");
+            q0.AddAnswer("10-15");
+            q0.AddAnswer("116-21");
+            q0.AddAnswer("122-30");
+            q0.AddAnswer("131-40");
+            q0.AddAnswer("141-50");
+            q0.AddAnswer("351+");
             questions.Add(q0);
-            Question q1 = new Question("PepeHands");
-            q1.AddAnswer("0Krappa");
-            q1.AddAnswer("24Head");
+            Question q1 = new Question("What is your gender");
+            q1.AddAnswer("2Man");
+            q1.AddAnswer("2Women");
             questions.Add(q1);
-            Question q2 = new Question("scrub LUL");
-            q2.AddAnswer("1EleGiggle");
-            q2.AddAnswer("0BabyRage");
+            Question q2 = new Question("Are you straight or homosexual?");
+            q2.AddAnswer("3Straight");
+            q2.AddAnswer("3Homosexual");
             questions.Add(q2);
+            Question q3 = new Question("xSelect the negative feeling you expect to feel during the date");
+            q3.AddAnswer("0Stress");
+            q3.AddAnswer("0Anxiety");
+            q3.AddAnswer("0Nervousness");
+            q3.AddAnswer("0Anxiety");
+            questions.Add(q3);
 
             Context mContext = Application.Context;
             Intent i = new Intent(mContext, typeof(QuestionPage));
             i.PutExtra("start", number);
             mContext.StartActivity(i);
+
         }
 
         public static void nextquestion(string s)
         {
             number = s;
-            Context mContext = Application.Context;
-            Intent i = new Intent(mContext, typeof(QuestionPage));
-            i.PutExtra("start", s);
-            mContext.StartActivity(i);
+            if (questions[int.Parse(number)].Ask.Substring(0, 1) == "x")
+            {
+                Context mContext = Application.Context;
+                Intent i = new Intent(mContext, typeof(CheckPage));
+                i.PutExtra("start", number);
+                mContext.StartActivity(i);
+            }
+            else
+            {
+                Context mContext = Application.Context;
+                Intent i = new Intent(mContext, typeof(QuestionPage));
+                i.PutExtra("start", s);
+                mContext.StartActivity(i);
+            }
         }
         public static Question Quest
         {

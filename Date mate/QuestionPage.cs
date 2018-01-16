@@ -12,13 +12,15 @@ namespace Date_mate
     public class QuestionPage : Activity
     {
         List<String> answers;
+        Question q;
+
         protected override void OnCreate(Bundle b)
         {
             base.OnCreate(b);
 
             string nummer = this.Intent.GetStringExtra("start");
 
-            Question q = GameBase.Quest;
+            q = GameBase.Quest;
 
             LinearLayout menu = new LinearLayout(this);
             menu.Orientation = Orientation.Vertical;
@@ -44,6 +46,7 @@ namespace Date_mate
             {
                 if (a == s.Substring(1,s.Length-1))
                 {
+                    Userinfo.Opslaan(q.getQuestion,a);
                     GameBase.nextquestion(s.Substring(0,1));
                 }
             }
