@@ -12,7 +12,7 @@ namespace Date_mate
     {
         public String Ask;
         //Elk answer bestaat uit een plaats daarna een spatie en het antwoord zelf
-        List<String> Answers = new List<String>();
+        public List<String> Answers = new List<String>();
 
         public Question(String q)
         {
