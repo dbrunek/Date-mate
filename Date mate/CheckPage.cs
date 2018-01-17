@@ -86,6 +86,7 @@ namespace Date_mate
         public void Confirm(object o, EventArgs ea)
         {
             Userinfo.Checkopslaan(check);
+            GameBase.nextquestion("end");
         }
     }
 }

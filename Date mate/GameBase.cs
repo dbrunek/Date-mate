@@ -12,8 +12,10 @@ namespace Date_mate
     public static class GameBase
     {
         public static List<Question> questions = new List<Question>();
-        public static List<List<String>> texts = new List<List<String>>();
+        public static List<Text> textData = new List<Text>();
+        public static List<Text> texts = new List<Text>();
         public static String number = "0";
+        public static String textnumber = "0";
 
         public static void startgame()
         {
@@ -29,7 +31,11 @@ namespace Date_mate
         public static void nextquestion(string s)
         {
             number = s;
-            if (questions[int.Parse(number)].Ask.Substring(0, 1) == "x")
+            if (s == "end")
+            {
+                startText();
+            }
+            else if (questions[int.Parse(number)].Ask.Substring(0, 1) == "x")
             {
                 Context mContext = Application.Context;
                 Intent i = new Intent(mContext, typeof(CheckPage));
@@ -43,6 +49,74 @@ namespace Date_mate
                 i.PutExtra("start", s);
                 mContext.StartActivity(i);
             }
+        }
+        public static void startText()
+        {
+            Context mContext = Application.Context;
+            Intent i = new Intent(mContext, typeof(TextPage));
+            i.PutExtra("start", textnumber);
+            mContext.StartActivity(i);
+        }
+        public static void nextText()
+        {
+            int t = int.Parse(textnumber);
+            t++;
+            textnumber = t.ToString();
+
+            if (texts.Count == int.Parse(textnumber))
+            {
+                startInfoPage();
+            }
+            else
+            {
+                Context mContext = Application.Context;
+                Intent i = new Intent(mContext, typeof(TextPage));
+                i.PutExtra("start", textnumber);
+                mContext.StartActivity(i);
+            }
+        }
+        public static void previousText()
+        {
+            int t = int.Parse(textnumber);
+            t--;
+            textnumber = t.ToString();
+
+            Context mContext = Application.Context;
+            Intent i = new Intent(mContext, typeof(TextPage));
+            i.PutExtra("start", textnumber);
+            mContext.StartActivity(i);
+        }
+        public static void startInfoPage()
+        {
+            Context mContext = Application.Context;
+            Intent i = new Intent(mContext, typeof(InfoPage));
+            mContext.StartActivity(i);
+        }
+        public static void InfoPageLink(int t)
+        {
+            Context mContext = Application.Context;
+            Intent i = new Intent(mContext, typeof(InfoPageLinkPage));
+            i.PutExtra("start", t.ToString());
+            mContext.StartActivity(i);
+        }
+        public static Text getSpecificText(String s)
+        {
+            return textData[int.Parse(s)];
+        }
+        public static List<Text> getTextData
+        {
+            get { return textData; }
+            set { }
+        }
+        public static int getTextCount
+        {
+            get { return texts.Count; }
+            set { }
+        }
+        public static Text getTextinfo
+        {
+            get { return texts[int.Parse(textnumber)]; }
+            set { }
         }
         public static Question Quest
         {
@@ -76,7 +150,20 @@ namespace Date_mate
         }
         public static void TextData()
         {
+            Text t0 = new Text("test");
+            t0.AddAlinea("test tekst");
+            t0.AddAlinea("alinea 2");
+            textData.Add(t0);
+            Text t1 = new Text("test 1");
+            t1.AddAlinea("test tekst 1");
+            t1.AddAlinea("alinea 2");
+            textData.Add(t1);
+            Text t2 = new Text("test 2");
+            t2.AddAlinea("test tekst 2");
+            t2.AddAlinea("alinea 2");
+            textData.Add(t2);
 
+            texts = Userinfo.userText(textData);
         }
     }
 }

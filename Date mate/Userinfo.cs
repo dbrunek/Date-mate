@@ -27,5 +27,9 @@ namespace Date_mate
             s = "c" + s;
             Data.Add(s);
         }
+        public static List<Text> userText(List<Text> t)
+        {
+            return t;
+        }
     }
 }
