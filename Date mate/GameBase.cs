@@ -126,20 +126,22 @@ namespace Date_mate
         public static void QuestionData()
         {
             Question q0 = new Question("What is your age?");
-            q0.AddAnswer("10-15");
-            q0.AddAnswer("116-21");
-            q0.AddAnswer("122-30");
-            q0.AddAnswer("131-40");
-            q0.AddAnswer("141-50");
-            q0.AddAnswer("351+");
+            q0.AddAnswer("10-18");
+            q0.AddAnswer("118-21");
+            q0.AddAnswer("122-25");
+            q0.AddAnswer("126-40");
+            q0.AddAnswer("130+");
             questions.Add(q0);
             Question q1 = new Question("What is your gender");
             q1.AddAnswer("2Man");
             q1.AddAnswer("2Women");
             questions.Add(q1);
-            Question q2 = new Question("Are you straight or homosexual?");
-            q2.AddAnswer("3Straight");
-            q2.AddAnswer("3Homosexual");
+            Question q2 = new Question("How much experience do you have with dating??");
+            q2.AddAnswer("3No experience (Never dated before)");
+            q2.AddAnswer("3Not much experience (Have had a few dates)");
+            q2.AddAnswer("3Avarage experience (Have had multiple dates with a few different persons)");
+            q2.AddAnswer("3A fair bit of experience (Have had frequent dates with different persons)");
+            q2.AddAnswer("3A lot of experience (Have had a lot of dates dates with different persons)");
             questions.Add(q2);
             Question q3 = new Question("xSelect the negative feeling you expect to feel during the date");
             q3.AddAnswer("0Stress");
