@@ -15,12 +15,13 @@ namespace Date_mate
         public List<String> answers;
         public List<boynextdoor> check = new List<boynextdoor>();
         Question q;
+        string nummer;
 
         protected override void OnCreate(Bundle b)
         {
             base.OnCreate(b);
 
-            string nummer = this.Intent.GetStringExtra("start");
+            nummer = this.Intent.GetStringExtra("start");
 
             q = GameBase.Quest;
 
@@ -86,7 +87,7 @@ namespace Date_mate
         public void Confirm(object o, EventArgs ea)
         {
             Userinfo.Checkopslaan(check);
-            GameBase.nextquestion("end");
+            GameBase.nextquestion((int.Parse(nummer) + 1).ToString());
         }
     }
 }

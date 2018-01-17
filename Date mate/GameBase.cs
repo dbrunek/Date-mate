@@ -31,7 +31,7 @@ namespace Date_mate
         public static void nextquestion(string s)
         {
             number = s;
-            if (s == "end")
+            if (s == "e")
             {
                 startText();
             }
@@ -143,12 +143,24 @@ namespace Date_mate
             q2.AddAnswer("3A fair bit of experience (Have had frequent dates with different persons)");
             q2.AddAnswer("3A lot of experience (Have had a lot of dates dates with different persons)");
             questions.Add(q2);
-            Question q3 = new Question("xSelect the negative feeling you expect to feel during the date");
+            Question q3 = new Question("xSelect the negative feelings you expect to feel during the date");
             q3.AddAnswer("0Stress");
             q3.AddAnswer("0Anxiety");
             q3.AddAnswer("0Nervousness");
             q3.AddAnswer("0Anxiety");
             questions.Add(q3);
+            Question q4 = new Question("xtest 2");
+            q4.AddAnswer("0Stress");
+            q4.AddAnswer("0Anxiety");
+            q4.AddAnswer("0Nervousness");
+            q4.AddAnswer("0Anxiety");
+            questions.Add(q4);
+            Question q5 = new Question("test 2333");
+            q5.AddAnswer("eStress");
+            q5.AddAnswer("eAnxiety");
+            q5.AddAnswer("eNervousness");
+            q5.AddAnswer("eAnxiety");
+            questions.Add(q5);
         }
         public static void TextData()
         {
