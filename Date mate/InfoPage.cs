@@ -11,7 +11,7 @@ namespace Date_mate
     [Activity(Label = "")]
     class InfoPage : Activity
     {
-        public int teller;
+        List<Button> but = new List<Button>();
         protected override void OnCreate(Bundle b)
         {
             base.OnCreate(b);
@@ -28,14 +28,22 @@ namespace Date_mate
 
             for(int i = 0; i < t.Count; i++)
             {
-                teller = i;
                 Link = new Button(this); Link.Text = t[i].getTitel; Link.Click += klikLink; menu.AddView(Link);
+                but.Add(Link);
             }
 
             this.SetContentView(menu);
         }
         public void klikLink(object o, EventArgs ea)
         {
+            int teller = 0;
+            for (int i = 0; i < but.Count; i++)
+            {
+                if(but[i] == (Button)o)
+                {
+                    teller = i;
+                }
+            }
             GameBase.InfoPageLink(teller);
         }
     }

@@ -19,19 +19,30 @@ namespace Date_mate
 
         public static void startgame()
         {
+
             QuestionData();
             TextData();
 
             Context mContext = Application.Context;
-            Intent i = new Intent(mContext, typeof(QuestionPage));
+            Intent i = new Intent(mContext, typeof(inleidPage));
             i.PutExtra("start", number);
             mContext.StartActivity(i);
 
         }
+        public static void endgame()
+        {
+            number = "0";
+            textnumber = "0";
+            Userinfo.delete();
+
+            Context mContext = Application.Context;
+            Intent i = new Intent(mContext, typeof(Main));
+            mContext.StartActivity(i);
+        }
         public static void nextquestion(string s)
         {
             number = s;
-            if (s == "e")
+            if (s == "8" || s == questions.Count.ToString())
             {
                 startText();
             }
@@ -42,20 +53,37 @@ namespace Date_mate
                 i.PutExtra("start", number);
                 mContext.StartActivity(i);
             }
+            else if (questions[int.Parse(number)].Ask.Substring(0, 1) == "q")
+            {
+                Context mContext = Application.Context;
+                Intent i = new Intent(mContext, typeof(agreePage));
+                i.PutExtra("start", number);
+                mContext.StartActivity(i);
+            }
             else
             {
                 Context mContext = Application.Context;
                 Intent i = new Intent(mContext, typeof(QuestionPage));
-                i.PutExtra("start", s);
+                i.PutExtra("start", number);
                 mContext.StartActivity(i);
             }
         }
         public static void startText()
         {
-            Context mContext = Application.Context;
-            Intent i = new Intent(mContext, typeof(TextPage));
-            i.PutExtra("start", textnumber);
-            mContext.StartActivity(i);
+            texts = Userinfo.userText(textData);
+            List<Text> bv = new List<Text>();
+
+            if (texts.Count == 0)
+            {
+                startInfoPage();
+            }
+            else
+            {
+                Context mContext = Application.Context;
+                Intent i = new Intent(mContext, typeof(TextPage));
+                i.PutExtra("start", textnumber);
+                mContext.StartActivity(i);
+            }
         }
         public static void nextText()
         {
@@ -143,41 +171,60 @@ namespace Date_mate
             q2.AddAnswer("3A fair bit of experience (Have had frequent dates with different persons)");
             q2.AddAnswer("3A lot of experience (Have had a lot of dates dates with different persons)");
             questions.Add(q2);
-            Question q3 = new Question("xSelect the negative feelings you expect to feel during the date");
-            q3.AddAnswer("0Stress");
-            q3.AddAnswer("0Anxiety");
-            q3.AddAnswer("0Nervousness");
-            q3.AddAnswer("0Anxiety");
+            Question q3 = new Question("Do you think you need to improve in finding a good dating location?");
+            q3.AddAnswer("4Yes");
+            q3.AddAnswer("4No");
             questions.Add(q3);
-            Question q4 = new Question("xtest 2");
-            q4.AddAnswer("0Stress");
-            q4.AddAnswer("0Anxiety");
-            q4.AddAnswer("0Nervousness");
-            q4.AddAnswer("0Anxiety");
+            Question q4 = new Question("Do you think you have to improve in avoiding awkward silences/ not knowing what to talk about?");
+            q4.AddAnswer("5Yes");
+            q4.AddAnswer("5No");
             questions.Add(q4);
-            Question q5 = new Question("test 2333");
-            q5.AddAnswer("eStress");
-            q5.AddAnswer("eAnxiety");
-            q5.AddAnswer("eNervousness");
-            q5.AddAnswer("eAnxiety");
+            Question q5 = new Question("qHow much do you agree with the following statements about yourself in the context of dating:");
+            q5.AddAnswer("6I can correctly identify other people’s emotions.");
+            q5.AddAnswer("6I can correctly identify other people’s needs.");
+            q5.AddAnswer("6I recall what other persons recently have said.");
+            q5.AddAnswer("6I recall what other people have said at the beginning of the conservation.");
+            q5.AddAnswer("6I can focus on other people.");
             questions.Add(q5);
+            Question q6 = new Question("qHow much do you agree with the following statements about yourself in the context of dating:");
+            q6.AddAnswer("7I feel calm.");
+            q6.AddAnswer("7I am tense.");
+            q6.AddAnswer("7I feel upset.");
+            q6.AddAnswer("7I am relaxed.");
+            q6.AddAnswer("7I feel content.");
+            q6.AddAnswer("7I am worried.");
+            questions.Add(q6);
+            Question q7 = new Question("qHow much do you agree with the following statements about yourself:");
+            q7.AddAnswer("8I feel confident about my appearance and attitude.");
+            q7.AddAnswer("8I feel confident in conservations.");
+            q7.AddAnswer("8I can enjoy social situations without being focused on how other think of me.");
+            q7.AddAnswer("8I am not shy to share my honest opinion without being focused on what others think of me.");
+            q7.AddAnswer("8In social situations, I feel relaxed and can focus and listen well to others.");
+            q7.AddAnswer("8In social situations, I often do not fully feel present because I am too focused on what to say next.");
+            questions.Add(q7);
         }
         public static void TextData()
         {
-            Text t0 = new Text("test");
+            Text t0 = new Text("Dating locations");
             t0.AddAlinea("test tekst");
             t0.AddAlinea("alinea 2");
             textData.Add(t0);
-            Text t1 = new Text("test 1");
+            Text t1 = new Text("Awkward silences/Not knowing what to say");
             t1.AddAlinea("test tekst 1");
             t1.AddAlinea("alinea 2");
             textData.Add(t1);
-            Text t2 = new Text("test 2");
+            Text t2 = new Text("Stress");
             t2.AddAlinea("test tekst 2");
             t2.AddAlinea("alinea 2");
             textData.Add(t2);
-
-            texts = Userinfo.userText(textData);
+            Text t3 = new Text("Anxiety");
+            t3.AddAlinea("test tekst 2");
+            t3.AddAlinea("alinea 2");
+            textData.Add(t3);
+            Text t4 = new Text("Low self-esteem");
+            t4.AddAlinea("test tekst 2");
+            t4.AddAlinea("alinea 2");
+            textData.Add(t4);
         }
     }
 }

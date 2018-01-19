@@ -11,7 +11,6 @@ namespace Date_mate
     [Activity(Label = "")]
     class InfoPageLinkPage : Activity
     {
-        public int teller;
         protected override void OnCreate(Bundle b)
         {
             base.OnCreate(b);

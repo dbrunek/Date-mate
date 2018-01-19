@@ -9,7 +9,7 @@ using Android.Graphics;
 namespace Date_mate
 {
     [Activity(Label = "")]
-    public class QuestionPage : Activity
+    class QuestionPage : Activity
     {
         List<String> answers;
         Question q;
