@@ -35,22 +35,24 @@ namespace Date_mate
             answers = q.getAnswer;
 
             ScrollView upmenu = new ScrollView(this);
-            upmenu.SetBackgroundColor(Color.Yellow);
+            upmenu.SetBackgroundColor(Color.LightCyan);
 
             LinearLayout menu = new LinearLayout(this);
             menu.Orientation = Orientation.Vertical;
-            menu.SetBackgroundColor(Color.Yellow);
+            menu.SetBackgroundColor(Color.LightCyan);
+            menu.SetPadding(40, 0, 40, 0);
 
             upmenu.AddView(menu);
 
-            TextView q1 = new TextView(this); q1.Text = q.getQuestion.Substring(1, q.getQuestion.Length - 1); q1.TextSize = 20; q1.SetTextColor(Color.Black); menu.AddView(q1);
+            TextView y = new TextView(this); y.Text = q.getQuestion.Substring(1, q.getQuestion.Length - 1); y.TextSize = 20; y.SetTextColor(Color.Black); menu.AddView(y);
 
             TextView t;
             CheckBox c;
 
             for (i = 0; i < answers.Count; i++)
             {
-                t = new TextView(this); t.Text = answers[i].Substring(1, answers[i].Length - 1); q1.TextSize = 10; q1.SetTextColor(Color.Black); menu.AddView(t);
+                t = new TextView(this); t.Text = answers[i].Substring(1, answers[i].Length - 1); t.TextSize = 15; t.SetTextColor(Color.Black); menu.AddView(t);
+                t.SetPadding(0, 20, 0, 0);
                 for (u = 0; u < agreeanswers.Count; u++)
                 {
                     c = new CheckBox(this); c.Text = agreeanswers[u]; c.Click += klikbutton;  menu.AddView(c);

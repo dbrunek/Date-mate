@@ -10,8 +10,9 @@ using Android.Views;
 
 namespace Date_mate
 {
+
     [Activity(Label = "")]
-    class InfoPage : Activity
+    class CheckListPage : Activity
     {
         List<Button> but = new List<Button>();
         protected override void OnCreate(Bundle b)
@@ -28,16 +29,24 @@ namespace Date_mate
 
             upmenu.AddView(menu);
 
-            TextView q1 = new TextView(this); q1.Text = "All information pages" ; q1.TextSize = 25; q1.SetTextColor(Color.Black); menu.AddView(q1);
+            TextView t1 = new TextView(this); t1.Text = "Looks like you are Ready for your date. Here is a helpfull checklist to see if you forgot anything."; t1.TextSize = 15; t1.SetTextColor(Color.Black); menu.AddView(t1);
 
-            List<Text> t = GameBase.getTextData;
-
-            Button Link;
-
-            for(int i = 0; i < t.Count; i++)
+            List<String> checks = new List<string>();
+            checks.Add("Take a shower");
+            checks.Add("Brush your teeth");
+            checks.Add("Do your hair");
+            checks.Add("Put on perfume/deodorant");
+            checks.Add("Put on adequate clothing");
+            checks.Add("Go to the toilet beforehand");
+            if (Userinfo.Data[1].Substring(0, 1) == "W")
             {
-                Link = new Button(this); Link.Text = t[i].getTitel; Link.Click += klikLink; menu.AddView(Link);
-                but.Add(Link);
+                checks.Add("Do your makeup");
+            }
+
+            for (int te = 0; te < checks.Count; te++)
+            {
+                CheckBox c1 = new CheckBox(this); c1.Text = checks[te]; menu.AddView(c1);
+                but.Add(c1);
             }
 
             LinearLayout buttonmenu = new LinearLayout(this);
@@ -47,8 +56,8 @@ namespace Date_mate
             buttonmenu.SetPadding(0, 5, 0, 0);
             int w = Resources.DisplayMetrics.WidthPixels;
 
-            Button bu = new Button(this); bu.Text = "Ready"; bu.SetWidth(w/2); bu.Click += klikready; buttonmenu.AddView(bu);
-            Button end = new Button(this); end.Text = "Main menu"; end.SetWidth(w / 2);  end.Click += klikend; buttonmenu.AddView(end);
+            Button Back = new Button(this); Back.Text = "Back"; Back.SetWidth(w / 2); Back.Click += klikback; buttonmenu.AddView(Back);
+            Button Ready = new Button(this); Ready.Text = "Ready"; Ready.SetWidth(w / 2); Ready.Click += klikready; buttonmenu.AddView(Ready);
 
             menu.AddView(buttonmenu);
             this.SetContentView(upmenu);
@@ -56,24 +65,14 @@ namespace Date_mate
         public void klikready(object o, EventArgs ea)
         {
             Context mContext = Application.Context;
-            Intent i = new Intent(mContext, typeof(CheckListPage));
+            Intent i = new Intent(mContext, typeof(Endscreen));
             mContext.StartActivity(i);
         }
-        public void klikend(object o, EventArgs ea)
+        public void klikback(object o, EventArgs ea)
         {
-            GameBase.endgame();
-        }
-        public void klikLink(object o, EventArgs ea)
-        {
-            int teller = 0;
-            for (int i = 0; i < but.Count; i++)
-            {
-                if(but[i] == (Button)o)
-                {
-                    teller = i;
-                }
-            }
-            GameBase.InfoPageLink(teller);
+            Context mContext = Application.Context;
+            Intent i = new Intent(mContext, typeof(InfoPage));
+            mContext.StartActivity(i);
         }
     }
 }

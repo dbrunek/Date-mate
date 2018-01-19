@@ -48,11 +48,11 @@ namespace Date_mate
 
             if(Data[3].Substring(0,1) == "Y")
             {
-                retext.Add(t[0]);
+                retext.Add(t[3]);
             }
             if(Data[4].Substring(0,1) == "Y")
             {
-                retext.Add(t[1]);
+                retext.Add(t[0]);
             }
 
             Data[11] = ((int.Parse(Data[11].Substring(0, 1)) * -1) + 4).ToString() + Data[11].Substring(1,(Data[11].Length -1));
@@ -71,17 +71,13 @@ namespace Date_mate
             {
                 selfesteem = selfesteem + int.Parse(Data[i].Substring(0, 1));
             }
-            if(stress > 19)
+            if(stress + anxiety < 25)
+            {
+                retext.Add(t[1]);
+            }
+            if (selfesteem < 15)
             {
                 retext.Add(t[2]);
-            }
-            if (anxiety> 11)
-            {
-                retext.Add(t[3]);
-            }
-            if (selfesteem> 11)
-            {
-                retext.Add(t[4]);
             }
             return retext;
         }

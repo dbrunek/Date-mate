@@ -24,9 +24,10 @@ namespace Date_mate
 
             LinearLayout menu = new LinearLayout(this);
             menu.Orientation = Orientation.Vertical;
-            menu.SetBackgroundColor(Color.Yellow);
+            menu.SetBackgroundColor(Color.LightCyan);
+            menu.SetPadding(40, 0, 40, 0);
 
-            TextView q1 = new TextView(this); q1.Text = q.getQuestion; q1.TextSize = 10; q1.SetTextColor(Color.Black); menu.AddView(q1);
+            TextView q1 = new TextView(this); q1.Text = q.getQuestion; q1.TextSize = 20; q1.SetTextColor(Color.Black); menu.AddView(q1);
 
             answers = q.getAnswer;
             Button ans;
