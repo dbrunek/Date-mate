@@ -301,7 +301,7 @@ namespace Date_mate
             t2.AddAlinea("Once you have identified your 5 things, make it your duty to find out everything you can about their creation and purpose to truly appreciate the way in which they support your life.");
             textData.Add(t2);
             Text t3 = new Text("Low self-esteem");
-            t3.AddAlinea("Low self-esteem can have big impact on a date, but also in generall low self-esteem can cause you not to live life to the fullest. With these 5 tips you can improve your self confidence and higher you self-esteem.");
+            t3.AddAlinea("Low self-esteem can have big impact on a date, but also in generall low self-esteem can cause you not to live your life to the fullest. With these 5 tips you can improve your self confidence and higher you self-esteem.");
             t3.AddAlinea("1. Think hard about the root cause(s) of your insecurities. The first step to defeating a formidable foe is to learn about them, and this situation is no different. Identifying the events that led to a low sense of self-worth can provide invaluable information for challenging these negative beliefs.");
             t3.AddAlinea("2. After you identify these root causes to your insecurities, the next step will be to think about these causes and how they affect you right now and in the future.");
             t3.AddAlinea("3. Be kind to yourself. If you find yourself being excessively negative to yourself, stop and consider how you would feel if someone said these things about a close friend or family member. Extend that kindness and compassion to yourself.");
@@ -309,7 +309,7 @@ namespace Date_mate
             t3.AddAlinea("5. Celebrate your success. When you meet a goal, successfully challenge a negative thought, or catch yourself extending kindness towards yourself, mark the achievement with a celebration! Taking the time to revel in your success and enjoy the moment can give you the inspiration you need to continue your journey to self-improvement.");
             textData.Add(t3);
             Text t4 = new Text("Dating locations");
-            t4.AddAlinea("The location of a date can be very important. A good date location can add a lot of stuff to talk about and can make a date much more exciting, but a bad dating location can distract you from the date and have a negative impact on the date. So here are some idea for fun and exciting date locations.");
+            t4.AddAlinea("The location of a date can be very important. A good date location can add a lot of stuff to talk about and can make a date much more exciting, but a bad dating location can distract you from the date and have a negative impact on the date. So here are some ideas for fun and exciting date locations.");
             t4.AddAlinea("-On a bench in a park");
             t4.AddAlinea("Secure a spot on a bench or on the lawn on a busy street or in a crowded park and let the people around you serve as food for thought.");
             t4.AddAlinea("-The zoo");
