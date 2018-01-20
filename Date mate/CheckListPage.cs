@@ -52,7 +52,7 @@ namespace Date_mate
             LinearLayout buttonmenu = new LinearLayout(this);
             buttonmenu.Orientation = Orientation.Horizontal;
             buttonmenu.SetBackgroundColor(Color.LightCyan);
-            buttonmenu.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, 100);
+            buttonmenu.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             buttonmenu.SetPadding(0, 5, 0, 0);
             int w = Resources.DisplayMetrics.WidthPixels;
 
