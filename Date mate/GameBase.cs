@@ -214,7 +214,7 @@ namespace Date_mate
             Question q7 = new Question("qHow much do you agree with the following statements about yourself:");
             q7.AddAnswer("8I feel confident about my appearance and attitude.");
             q7.AddAnswer("8I feel confident in conservations.");
-            q7.AddAnswer("8I can enjoy social situations without being focused on how other think of me.");
+            q7.AddAnswer("8I can enjoy social situations without being focused on how others think of me.");
             q7.AddAnswer("8I am not shy to share my honest opinion without being focused on what others think of me.");
             q7.AddAnswer("8In social situations, I feel relaxed and can focus and listen well to others.");
             q7.AddAnswer("8In social situations, I often do not fully feel present because I am too focused on what to say next.");
