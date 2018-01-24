@@ -38,9 +38,16 @@ namespace Date_mate
             checks.Add("Put on perfume/deodorant");
             checks.Add("Put on adequate clothing");
             checks.Add("Go to the toilet beforehand");
-            if (Userinfo.Data[1].Substring(0, 1) == "W")
+            try
             {
-                checks.Add("Do your makeup");
+                if (Userinfo.Data[1].Substring(0, 1) == "W")
+                {
+                    checks.Add("Do your makeup");
+                }
+            }
+            catch
+            {
+
             }
 
             for (int te = 0; te < checks.Count; te++)
